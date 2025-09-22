@@ -1,42 +1,45 @@
 import Image from "next/image";
+import { useRef, useState } from "react";
+import { PropertyProps } from "@/interfaces";
+import { PROPERTYLISTINGSAMPLE } from "@/constants";
+import Button from "./Button";
 const Search: React.FC = () => {
+  const [query, setQuery] = useState("");
+  const filtered: PropertyProps[] = PROPERTYLISTINGSAMPLE.filter(
+    (item: PropertyProps) =>
+      item.name.toLowerCase().includes(query.toLowerCase())
+  );
+  const inputRef = useRef<HTMLInputElement>(null);
+  const handleClick = () => {
+    if (inputRef.current) {
+      setQuery(inputRef.current.value);
+    }
+  };
   return (
-    <div className="flex flex-column justify-between border border-solid border-neutral-200 px-8 py-4 rounded-full ">
-      <div className="flex flex-row gap-2">
-        <div className="flex flex-col gap-2">
-          <p className=" text-[15px] text-neutral-500 font-medium">Location</p>
-          <p className="w-auto text-base text-neutral-300 font-extralight">
-            search for destination
-          </p>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className=" text-[15px] text-neutral-500 font-medium">Check in</p>
-          <p className=" text-base text-neutral-300 font-extralight">
-            Add date
-          </p>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className=" text-[14px] text-neutral-500 font-medium">Check out</p>
-          <p className=" text-base text-neutral-300 font-extralight">
-            Add date
-          </p>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className=" text-[15px] text-neutral-500 font-medium">People</p>
-          <p className=" size-[0.75] text-neutral-300 font-extralight">
-            Add guest
-          </p>
-        </div>
-      </div>
-      <div className="bg-[#FFA800] p-4 rounded-full">
-        <Image
-          src="assets/magnifer.svg"
-          alt="seach_icon"
-          width={24}
-          height={24}
+    <>
+      <div className="flex flex-row gap-0 ">
+        <input
+          type="string"
+          name="location"
+          className="bg-grey-300 outline:none border-1 border-grey-90o text-black p-4 w-full rounded-full focus:outline-none focus:ring-2 focus:ring-green-300 shadow-lg "
+          value={query}
+          placeholder="search for destination"
+          ref={inputRef}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setQuery(e.target.value)
+          }
         />
+        <button type="submit" onClick={handleClick}>
+          <Image
+            src="assets/magnifer.svg"
+            alt="seach_icon"
+            width={18}
+            height={18}
+            onClick={handleClick}
+          />
+        </button>
       </div>
-    </div>
+    </>
   );
 };
 

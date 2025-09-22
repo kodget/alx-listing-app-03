@@ -17,9 +17,7 @@ export default function Home() {
     <div
       className={`${geistSans.className} ${geistMono.className} font-sans min-h-screen p-10`}
     >
-      <main>
-        <Header />
-      </main>
+      <main></main>
     </div>
   );
 }

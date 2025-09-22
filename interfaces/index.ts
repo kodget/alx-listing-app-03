@@ -1,5 +1,13 @@
 // interfaces/index.ts
 
+// Placeholder for HomeIcon props
+export interface HomeIconProps {
+  className?: string;
+  src?: string;
+  alt?: string;
+  icon?: string;
+}
+
 // Placeholder for Card component props
 export interface CardProps {
   title?: string;
@@ -8,8 +16,11 @@ export interface CardProps {
 
 // Placeholder for Button component props
 export interface ButtonProps {
+  className?: string;
   label?: string;
+  type?: "submit" | "reset" | "button";
   onClick?: () => void;
+  icon?: string;
 }
 
 export interface Offers {
