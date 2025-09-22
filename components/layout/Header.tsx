@@ -2,9 +2,6 @@ import Image from "next/image";
 import Search from "../common/Search";
 import Button from "../common/Button";
 import AccommocdationType from "../common/AccommodationType";
-// In components/layout/Header.tsx, create a functional component that renders the header content
-// , including search bar, sign and sign up ,
-// Types of accommodation (e.g. Rooms, Mansion, Countryside, etc.) and a logo.
 
 const Header: React.FC = () => {
   return (
