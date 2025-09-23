@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Search from "../common/Search";
 import Button from "../common/Button";
-import AccommocdationType from "../common/AccommodationType";
+import AccommodationType from "../common/AccommodationType";
+import { GlobalProps } from "@/interfaces";
 
-const Header: React.FC = () => {
+const Header: React.FC<GlobalProps> = ({ query, setQuery, filtered }) => {
   return (
     <div>
       <div className="w-full grid grid-cols-4 place-content-between p-4">
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
           />
         </div>
         <div className="col-span-2 max-[600px]:col-span-3 w-full">
-          <Search />
+          <Search query={query} setQuery={setQuery} filtered={filtered} />
         </div>
         <div className="flex flex-row gap-2 ww-full justify-self-end">
           <Button
@@ -33,7 +34,7 @@ const Header: React.FC = () => {
           />
         </div>
       </div>
-      <AccommocdationType />
+      <AccommodationType />
     </div>
   );
 };

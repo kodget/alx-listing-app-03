@@ -1,14 +1,11 @@
+"use client";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { PropertyProps } from "@/interfaces";
 import { PROPERTYLISTINGSAMPLE } from "@/constants";
-import Button from "./Button";
-const Search: React.FC = () => {
-  const [query, setQuery] = useState("");
-  const filtered: PropertyProps[] = PROPERTYLISTINGSAMPLE.filter(
-    (item: PropertyProps) =>
-      item.name.toLowerCase().includes(query.toLowerCase())
-  );
+import { GlobalProps } from "@/interfaces";
+
+const Search: React.FC<GlobalProps> = ({ query, setQuery, filtered }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const handleClick = () => {
     if (inputRef.current) {

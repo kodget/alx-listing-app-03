@@ -1,6 +1,19 @@
 // interfaces/index.ts
 
 // Placeholder for HomeIcon props
+export interface GlobalProps {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  filtered: PropertyProps[];
+}
+
+export interface LayoutProps {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  filtered: PropertyProps[];
+  children: React.ReactNode;
+}
+
 export interface HomeIconProps {
   className?: string;
   src?: string;
@@ -41,5 +54,5 @@ export interface PropertyProps {
   price: number;
   offers: Offers;
   image: string;
-  discount: string;
+  discount: number;
 }
