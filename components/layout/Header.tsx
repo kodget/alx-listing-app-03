@@ -7,7 +7,7 @@ import { GlobalProps } from "@/interfaces";
 const Header: React.FC<GlobalProps> = ({ query, setQuery, filtered }) => {
   return (
     <div>
-      <div className="w-full grid grid-cols-4 place-content-between p-4">
+      <div className="w-full grid grid-cols-4 place-content-between p-4 sticky">
         <div className="pl-4 self-center max-[600px]:hidden md:block lg:block xl:block">
           <Image
             src="/assets/alx-logo.svg"
