@@ -1,0 +1,1 @@
+import { PROPERTYLISTINGSAMPLE } from "@/constants";
